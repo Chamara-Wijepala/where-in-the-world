@@ -128,6 +128,18 @@ svg {
 
 /* general styles */
 
+body,
+.primary-header {
+  transition: color 250ms, background-color 250ms ease-in-out;
+}
+
+.dark-theme {
+  --clr-primary-100: hsl(209, 23%, 22%);
+  --clr-primary-200: hsl(207, 26%, 17%);
+  --clr-secondary: hsl(0, 0%, 100%);
+  --clr-accent: hsl(0, 0%, 100%);
+}
+
 .primary-header {
   box-shadow: 0 3px 4px hsl(0 0% 0% / 0.1);
 }
