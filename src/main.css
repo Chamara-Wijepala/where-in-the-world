@@ -1,3 +1,33 @@
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Nunito Sans"), local("Nunito-Sans"),
+    url("./assets/fonts/nunito-sans-v12-latin-300.woff2") format("woff2"),
+    url("./assets/fonts/nunito-sans-v12-latin-300.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Nunito Sans"), local("Nunito-Sans"),
+    url("./assets/fonts/nunito-sans-v12-latin-600.woff2") format("woff2"),
+    url("./assets/fonts/nunito-sans-v12-latin-600.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  font-style: normal;
+  font-weight: 800;
+  src: local("Nunito Sans"), local("Nunito-Sans"),
+    url("./assets/fonts/nunito-sans-v12-latin-800.woff2") format("woff2"),
+    url("./assets/fonts/nunito-sans-v12-latin-800.woff") format("woff");
+  font-display: swap;
+}
+
 /*  Edited version of CSS reset by Andy Bell */
 /*  https://piccalil.li/blog/a-modern-css-reset/ */
 
@@ -30,6 +60,7 @@ body {
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 a:not([class]) {
