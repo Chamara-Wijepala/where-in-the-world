@@ -167,6 +167,11 @@ svg {
   display: flex;
   justify-content: space-between;
 }
+.primary-header__toggle-theme-btn-content {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
 
 .search-bar {
   max-width: 30rem;
