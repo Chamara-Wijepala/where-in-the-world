@@ -149,9 +149,7 @@ svg {
 
 /* general styles */
 
-body,
-.primary-header,
-.card__details {
+* {
   transition: color 250ms, background-color 250ms ease-in-out;
 }
 
@@ -168,6 +166,25 @@ body,
 .primary-header__content {
   display: flex;
   justify-content: space-between;
+}
+
+.search-bar {
+  max-width: 30rem;
+  background-color: var(--clr-primary-100);
+  box-shadow: 0 0 10px hsl(0 0% 0% / 0.1);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: var(--clr-accent);
+}
+.search-bar__input {
+  width: 100%;
+  outline: none;
+  border: none;
+  color: inherit;
+  background-color: transparent;
 }
 
 .country-list {

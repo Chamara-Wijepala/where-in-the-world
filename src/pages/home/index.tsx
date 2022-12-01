@@ -1,17 +1,59 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { BsSearch } from "react-icons/bs";
 
 import { ICountry } from "types";
 
 import CountryCard from "./components/CountryCard";
 
 export default function Home() {
+  const [countryList, setCountryList] = useState<ICountry[] | null>(null);
+  const [searchValue, setSearchValue] = useState("");
+
   const countries = useFetchAllCountries();
+
+  // Storing a copy of the API data makes it possible to filter the data while
+  // keeping the original intact
+  useEffect(() => {
+    setCountryList(countries);
+  }, [countries]);
+
+  // Filters countries based on user input
+  useEffect(() => {
+    if (countries) {
+      setCountryList(
+        countries.filter((country) => {
+          return (
+            country.name.common
+              .toLowerCase()
+              .includes(searchValue.toLowerCase().trim()) ||
+            country.name.official
+              .toLowerCase()
+              .includes(searchValue.toLowerCase().trim())
+          );
+        })
+      );
+    }
+  }, [searchValue]);
 
   return (
     <main className="container">
+      <div className="filter-inputs">
+        <div className="search-bar">
+          <BsSearch />
+
+          <input
+            type="text"
+            value={searchValue}
+            placeholder="Search for a country..."
+            onChange={(e) => setSearchValue(e.target.value)}
+            className="search-bar__input"
+          />
+        </div>
+      </div>
+
       <div className="country-list">
-        {countries?.map((country) => (
+        {countryList?.map((country) => (
           <Link key={country.cca3} to={`/${country.cca3}`}>
             <CountryCard data={country} />
           </Link>
