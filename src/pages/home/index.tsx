@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { TailSpin } from "react-loader-spinner";
 import { BsSearch } from "react-icons/bs";
 
 import { ICountry } from "types";
@@ -52,13 +53,21 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="country-list">
-        {countryList?.map((country) => (
-          <Link key={country.cca3} to={`/${country.cca3}`}>
-            <CountryCard data={country} />
-          </Link>
-        ))}
-      </div>
+      {countryList ? (
+        <div className="country-list">
+          {countryList.map((country) => (
+            <Link key={country.cca3} to={`/${country.cca3}`}>
+              <CountryCard data={country} />
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <div className="homepage-loader">
+          <div className="loader-container">
+            <TailSpin color="green" ariaLabel="loading" />
+          </div>
+        </div>
+      )}
     </main>
   );
 }

@@ -192,6 +192,10 @@ svg {
   background-color: transparent;
 }
 
+.homepage-loader {
+  padding-block: 10rem;
+}
+
 .country-list {
   margin-block: 2.5rem;
   column-count: 1;
@@ -218,6 +222,12 @@ svg {
 }
 
 /* components */
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .card {
   width: 100%;
