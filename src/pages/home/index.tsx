@@ -5,7 +5,7 @@ import { BsSearch } from "react-icons/bs";
 
 import { ICountry } from "types";
 
-import CountryCard from "./components/CountryCard";
+import CountryCard from "./components/country-card";
 
 export default function Home() {
   const [countryList, setCountryList] = useState<ICountry[] | null>(null);
