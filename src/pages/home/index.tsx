@@ -5,11 +5,13 @@ import { BsSearch } from "react-icons/bs";
 
 import { ICountry } from "types";
 
+import RegionSelect, { SelectOption } from "./components/region-select";
 import CountryCard from "./components/country-card";
 
 export default function Home() {
   const [countryList, setCountryList] = useState<ICountry[] | null>(null);
   const [searchValue, setSearchValue] = useState("");
+  const [regionFilter, setRegionFilter] = useState<SelectOption[]>([]);
 
   const countries = useFetchAllCountries();
 
@@ -22,25 +24,35 @@ export default function Home() {
   // Filters countries based on user input
   useEffect(() => {
     if (countries) {
-      setCountryList(
-        countries.filter((country) => {
-          return (
-            country.name.common
-              .toLowerCase()
-              .includes(searchValue.toLowerCase().trim()) ||
-            country.name.official
-              .toLowerCase()
-              .includes(searchValue.toLowerCase().trim())
-          );
-        })
-      );
+      // Filters countries when searched by common or official name
+      let newList = countries.filter((country) => {
+        return (
+          country.name.common
+            .toLowerCase()
+            .includes(searchValue.toLowerCase().trim()) ||
+          country.name.official
+            .toLowerCase()
+            .includes(searchValue.toLowerCase().trim())
+        );
+      });
+
+      // Filters by selected regions
+      if (regionFilter.length > 0) {
+        newList = newList.filter((country) => {
+          return regionFilter.some((region) => {
+            return region.value === country.region;
+          });
+        });
+      }
+
+      setCountryList(newList);
     }
-  }, [searchValue]);
+  }, [searchValue, regionFilter]);
 
   return (
     <main className="container">
       <div className="filter-inputs">
-        <div className="search-bar">
+        <div className="search-bar | filter-container">
           <BsSearch />
 
           <input
@@ -51,6 +63,11 @@ export default function Home() {
             className="search-bar__input"
           />
         </div>
+
+        <RegionSelect
+          values={regionFilter}
+          onChange={(o) => setRegionFilter(o)}
+        />
       </div>
 
       {countryList ? (

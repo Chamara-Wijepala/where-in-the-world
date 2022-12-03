@@ -173,27 +173,13 @@ svg {
   align-items: center;
 }
 
-.search-bar {
-  max-width: 30rem;
-  background-color: var(--clr-primary-100);
-  box-shadow: 0 0 10px hsl(0 0% 0% / 0.1);
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  color: var(--clr-accent);
-}
-.search-bar__input {
-  width: 100%;
-  outline: none;
-  border: none;
-  color: inherit;
-  background-color: transparent;
-}
-
 .homepage-loader {
   padding-block: 10rem;
+}
+
+.filter-inputs {
+  display: grid;
+  gap: 1rem;
 }
 
 .country-list {
@@ -210,6 +196,11 @@ svg {
 }
 
 @media (min-width: 60em) {
+  .filter-inputs {
+    gap: 2.5rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .country-list {
     column-count: 3;
   }
@@ -227,6 +218,28 @@ svg {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.filter-container {
+  background-color: var(--clr-primary-100);
+  box-shadow: 0 0 10px hsl(0 0% 0% / 0.1);
+  border-radius: 5px;
+}
+
+.search-bar {
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-grow: 1;
+  align-items: center;
+  color: var(--clr-accent);
+}
+.search-bar__input {
+  width: 100%;
+  outline: none;
+  border: none;
+  color: inherit;
+  background-color: transparent;
 }
 
 .card {

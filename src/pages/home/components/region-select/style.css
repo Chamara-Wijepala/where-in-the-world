@@ -1,0 +1,92 @@
+.select {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-grow: 1;
+  color: var(--clr-secondary);
+  position: relative;
+  min-height: 4rem;
+}
+
+.select__placeholder {
+  cursor: default;
+  opacity: 60%;
+}
+
+.select__values {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-value-btn {
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.filter-value-btn:focus-visible,
+.filter-value-btn:hover {
+  background-color: hsl(0 100% 50% / 0.5);
+}
+
+.select__options {
+  position: absolute;
+  display: none;
+  width: 100%;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  z-index: 9999;
+}
+
+.select__options.open {
+  display: block;
+}
+
+.select__option-value {
+  width: 100%;
+  text-align: start;
+  padding: 0.5rem 2rem;
+}
+
+.select__option-value.selected {
+  background-color: rgb(33, 156, 150);
+}
+
+.select__option-value.highlighted {
+  background-color: lightseagreen;
+}
+
+.select__options-item:first-child {
+  padding-top: 0.5rem;
+}
+
+.select__options-item:last-child {
+  padding-bottom: 0.5rem;
+}
+
+.select__clear-btn:focus-visible,
+.select__clear-btn:hover,
+.select__caret-btn:focus-visible,
+.select__caret-btn:hover {
+  transform: scale(1.5);
+}
+
+.select__clear-btn {
+  margin-left: auto;
+}
+
+.select__clear-btn,
+.select__caret-btn {
+  flex-shrink: 0;
+  transition: transform 250ms ease-in-out;
+}
+
+.select__divider {
+  align-self: stretch;
+  border-left: 1px solid var(--clr-secondary);
+}

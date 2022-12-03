@@ -27,6 +27,8 @@
     "import/prefer-default-export": ["off"],
     "no-use-before-define": ["off"],
     "@typescript-eslint/no-use-before-define": ["off"],
-    "jsx-a11y/no-redundant-roles": ["off"]
+    "jsx-a11y/no-redundant-roles": ["off"],
+    "react/prop-types": ["off"],
+    "react/require-default-props": ["off"]
   }
 }
