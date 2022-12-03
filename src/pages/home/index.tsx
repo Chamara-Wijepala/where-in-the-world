@@ -95,7 +95,6 @@ function useFetchAllCountries() {
   const fields = [
     "name",
     "cca3",
-    "unMember",
     "capital",
     "region",
     "population",
