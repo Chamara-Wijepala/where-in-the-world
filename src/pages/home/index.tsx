@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <main className="container">
       <div className="filter-inputs">
-        <div className="search-bar | filter-container">
+        <div className="search-bar | filter-container box-shadow">
           <BsSearch />
 
           <input

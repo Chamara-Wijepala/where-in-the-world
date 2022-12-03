@@ -90,7 +90,7 @@ export default function RegionSelect({ values, onChange }: Props) {
       ref={selectRef}
       onClick={() => setIsOpen(!isOpen)}
       onKeyDown={(e) => handleKeyboardNavigation(e)}
-      className="select | filter-container"
+      className="select | filter-container box-shadow"
     >
       {values.length < 1 ? (
         <p className="select__placeholder | clr-accent">Filter By Region</p>
@@ -104,7 +104,7 @@ export default function RegionSelect({ values, onChange }: Props) {
                   e.stopPropagation();
                   chooseOption(value);
                 }}
-                className="filter-value-btn bg-primary-200"
+                className="filter-value-btn bg-primary-200 box-shadow"
               >
                 {value.value} <RiCloseLine />
               </button>
@@ -138,7 +138,10 @@ export default function RegionSelect({ values, onChange }: Props) {
 
       <ul
         role="list"
-        className={clsx(isOpen && "open", "select__options | filter-container")}
+        className={clsx(
+          isOpen && "open",
+          "select__options | filter-container box-shadow"
+        )}
       >
         {options.map((option) => (
           <li key={option.index} className="select__options-item">
