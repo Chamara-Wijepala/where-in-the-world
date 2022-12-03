@@ -29,9 +29,9 @@ interface NativeName {
 export interface ICountryDetails extends ICountry {
   tld?: string[];
   subregion?: string;
-  currencies?: { [key: string]: Currency };
+  currencies: { [key: string]: Currency };
   coatOfArms?: CoatOfArms;
-  languages?: { [key: string]: string };
+  languages: { [key: string]: string };
   borders?: string[];
 }
 

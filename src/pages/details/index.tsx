@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { TailSpin } from "react-loader-spinner";
 import { RxArrowLeft } from "react-icons/rx";
 
 import { ICountryDetails } from "types";
+
+import InfoSection from "./components/info-section";
 
 import "./style.css";
 
@@ -21,6 +24,32 @@ export default function Details() {
       >
         <RxArrowLeft /> Back
       </button>
+
+      {countryDetails ? (
+        <div className="details">
+          <div className="details__flag">
+            <img
+              src={countryDetails.flags.svg}
+              alt={`The flag of ${countryDetails.name.common}`}
+            />
+          </div>
+
+          {countryDetails.coatOfArms && (
+            <div className="details__coa">
+              <img
+                src={countryDetails.coatOfArms.svg}
+                alt={`The coat of arms of ${countryDetails.name.common}`}
+              />
+            </div>
+          )}
+
+          <InfoSection countryDetails={countryDetails} />
+        </div>
+      ) : (
+        <div className="loader-container">
+          <TailSpin color="green" ariaLabel="loading" />
+        </div>
+      )}
     </main>
   );
 }

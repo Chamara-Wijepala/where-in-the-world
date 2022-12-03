@@ -79,10 +79,8 @@ export default function Home() {
           ))}
         </div>
       ) : (
-        <div className="homepage-loader">
-          <div className="loader-container">
-            <TailSpin color="green" ariaLabel="loading" />
-          </div>
+        <div className="loader-container">
+          <TailSpin color="green" ariaLabel="loading" />
         </div>
       )}
     </main>
