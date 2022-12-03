@@ -25,3 +25,22 @@ interface NativeName {
   official: string;
   common: string;
 }
+
+export interface ICountryDetails extends ICountry {
+  tld?: string[];
+  subregion?: string;
+  currencies?: { [key: string]: Currency };
+  coatOfArms?: CoatOfArms;
+  languages?: { [key: string]: string };
+  borders?: string[];
+}
+
+interface Currency {
+  name: string;
+  symbol: string;
+}
+
+interface CoatOfArms {
+  png: string;
+  svg: string;
+}
