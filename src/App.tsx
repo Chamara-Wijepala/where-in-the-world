@@ -6,14 +6,14 @@ import Details from "pages/details";
 
 export default function App() {
   return (
-    <div>
+    <>
       <Header />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:id" element={<Details />} />
       </Routes>
-    </div>
+    </>
   );
 }
 
