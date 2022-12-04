@@ -81,7 +81,7 @@ export default function InfoSection({
           <ul role="list">
             {borderingCountries.map((country) => (
               <li key={country.code}>
-                <Link to={country.code}>{country.name.common}</Link>
+                <Link to={`/${country.code}`}>{country.name.common}</Link>
               </li>
             ))}
           </ul>
