@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { BsMoonFill, BsSunFill } from "react-icons/bs";
 import Home from "pages/home";
 import Details from "pages/details";
@@ -27,7 +27,9 @@ function Header() {
   return (
     <header className="primary-header | bg-primary-100 box-shadow">
       <div className="primary-header__content | container clr-secondary">
-        <h1 className="fs-700 fw-bold">Where in the world?</h1>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <h1 className="fs-700 fw-bold clr-secondary">Where in the world?</h1>
+        </Link>
         <button type="button" onClick={() => setIsDark(!isDark)}>
           {isDark ? (
             <span className="primary-header__toggle-theme-btn-content">
