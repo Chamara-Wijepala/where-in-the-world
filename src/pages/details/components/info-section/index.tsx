@@ -1,9 +1,13 @@
-import { ICountryDetails } from "types";
+import { Link } from "react-router-dom";
+
+import { ICountryDetails, IBorderingCountry } from "types";
 
 export default function InfoSection({
   countryDetails,
+  borderingCountries,
 }: {
   countryDetails: ICountryDetails;
+  borderingCountries: IBorderingCountry[];
 }) {
   // Creates a string of all the native names of the country
   const nativeNames = Object.values(countryDetails.name.nativeName)
@@ -30,7 +34,7 @@ export default function InfoSection({
     <section className="details__info-section">
       <h2>{countryDetails.name.common}</h2>
 
-      <div>
+      <div className="details__list-section">
         <ul role="list">
           <li>
             <span className="fw-bold">Native Name: </span>
@@ -53,9 +57,7 @@ export default function InfoSection({
             {capital}
           </li>
         </ul>
-      </div>
 
-      <div>
         <ul role="list">
           <li>
             <span className="fw-bold">Top Level Domain: </span>
@@ -71,6 +73,20 @@ export default function InfoSection({
           </li>
         </ul>
       </div>
+
+      {borderingCountries.length > 0 && (
+        <div>
+          <h3>Border Countries:</h3>
+
+          <ul role="list">
+            {borderingCountries.map((country) => (
+              <li key={country.code}>
+                <Link to={country.code}>{country.name.common}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </section>
   );
 }

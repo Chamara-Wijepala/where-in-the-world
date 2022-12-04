@@ -1,3 +1,8 @@
+export interface IBorderingCountry {
+  code: string;
+  name: Name;
+}
+
 export interface ICountry {
   flags: Flags;
   name: Name;
