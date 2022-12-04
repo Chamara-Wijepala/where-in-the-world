@@ -2,6 +2,7 @@
   margin-block: 6rem;
   display: grid;
   gap: 3rem;
+  animation: fadeIn 1s, slideUp 1s;
 }
 
 .details__flag {
