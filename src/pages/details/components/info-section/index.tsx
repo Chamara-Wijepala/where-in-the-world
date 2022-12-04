@@ -37,6 +37,10 @@ export default function InfoSection({
       <div className="details__list-section | fw-small">
         <ul role="list">
           <li>
+            <span className="fw-regular">Official Name: </span>
+            {countryDetails.name.official}
+          </li>
+          <li>
             <span className="fw-regular">Native Name: </span>
             {nativeNames}
           </li>
