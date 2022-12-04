@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { TailSpin } from "react-loader-spinner";
 import { RxArrowLeft } from "react-icons/rx";
 
@@ -11,19 +11,19 @@ import "./style.css";
 
 export default function Details() {
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const { countryDetails, borderingCountries } = useFetchCountryDetails(id);
 
   return (
     <main className="container">
-      <button
-        type="button"
-        onClick={() => navigate(-1)}
-        className="btn btn-with-icon clr-secondary bg-primary-100 box-shadow"
-      >
-        <RxArrowLeft /> Back
-      </button>
+      <Link to="/">
+        <button
+          type="button"
+          className="btn btn-with-icon clr-secondary bg-primary-100 box-shadow"
+        >
+          <RxArrowLeft /> Back
+        </button>
+      </Link>
 
       {countryDetails ? (
         <div className="details">
