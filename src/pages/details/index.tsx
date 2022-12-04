@@ -16,10 +16,10 @@ export default function Details() {
 
   return (
     <main className="container">
-      <Link to="/">
+      <Link to="/" style={{ textDecoration: "none" }}>
         <button
           type="button"
-          className="btn btn-with-icon clr-secondary bg-primary-100 box-shadow"
+          className="btn btn-md btn-with-icon clr-secondary bg-primary-100 box-shadow"
         >
           <RxArrowLeft /> Back
         </button>
@@ -27,20 +27,18 @@ export default function Details() {
 
       {countryDetails ? (
         <div className="details">
-          <div className="details__flag">
-            <img
-              src={countryDetails.flags.svg}
-              alt={`The flag of ${countryDetails.name.common}`}
-            />
-          </div>
+          <img
+            src={countryDetails.flags.svg}
+            alt={`The flag of ${countryDetails.name.common}`}
+            className="details__flag"
+          />
 
-          {countryDetails.coatOfArms && (
-            <div className="details__coa">
-              <img
-                src={countryDetails.coatOfArms.svg}
-                alt={`The coat of arms of ${countryDetails.name.common}`}
-              />
-            </div>
+          {countryDetails.coatOfArms?.svg !== "" && (
+            <img
+              src={countryDetails.coatOfArms?.svg}
+              alt={`The coat of arms of ${countryDetails.name.common}`}
+              className="details__coa"
+            />
           )}
 
           <InfoSection

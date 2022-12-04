@@ -22,7 +22,7 @@ export default function InfoSection({
 
   // Creates a string of the currency or currencies used in the country
   const currencies = Object.values(countryDetails.currencies)
-    .map((currency) => `${currency.symbol} ${currency.name}`)
+    .map((currency) => `${currency.name} (${currency.symbol})`)
     .join(", ");
 
   // Creates a string of the country's language or languages
@@ -31,57 +31,64 @@ export default function InfoSection({
   const numberFormat = new Intl.NumberFormat("en-US");
 
   return (
-    <section className="details__info-section">
-      <h2>{countryDetails.name.common}</h2>
+    <section className="details__info-section | clr-secondary">
+      <h2 className="fs-700 fw-bold">{countryDetails.name.common}</h2>
 
-      <div className="details__list-section">
+      <div className="details__list-section | fw-small">
         <ul role="list">
           <li>
-            <span className="fw-bold">Native Name: </span>
+            <span className="fw-regular">Native Name: </span>
             {nativeNames}
           </li>
           <li>
-            <span className="fw-bold">Population: </span>
+            <span className="fw-regular">Population: </span>
             {numberFormat.format(countryDetails.population)}
           </li>
           <li>
-            <span className="fw-bold">Region: </span>
+            <span className="fw-regular">Region: </span>
             {countryDetails.region}
           </li>
           <li>
-            <span className="fw-bold">Sub Region: </span>
+            <span className="fw-regular">Sub Region: </span>
             {countryDetails.subregion}
           </li>
           <li>
-            <span className="fw-bold">Capital: </span>
+            <span className="fw-regular">Capital: </span>
             {capital}
           </li>
         </ul>
 
         <ul role="list">
           <li>
-            <span className="fw-bold">Top Level Domain: </span>
+            <span className="fw-regular">Top Level Domain: </span>
             {tld}
           </li>
           <li>
-            <span className="fw-bold">Currencies: </span>
+            <span className="fw-regular">Currencies: </span>
             {currencies}
           </li>
           <li>
-            <span className="fw-bold">Languages: </span>
+            <span className="fw-regular">Languages: </span>
             {languages}
           </li>
         </ul>
       </div>
 
       {borderingCountries.length > 0 && (
-        <div>
+        <div className="details__borders">
           <h3>Border Countries:</h3>
 
-          <ul role="list">
+          <ul role="list" className="details__borders-list">
             {borderingCountries.map((country) => (
               <li key={country.code}>
-                <Link to={`/${country.code}`}>{country.name.common}</Link>
+                <Link to={`/${country.code}`}>
+                  <button
+                    type="button"
+                    className="btn btn-sm clr-secondary bg-primary-100 box-shadow"
+                  >
+                    {country.name.common}
+                  </button>
+                </Link>
               </li>
             ))}
           </ul>
