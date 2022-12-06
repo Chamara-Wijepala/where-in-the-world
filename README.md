@@ -69,3 +69,4 @@ function useFetchAllCountries() {
 - This [article](https://w3bits.com/css-masonry/) about how to create a masonry layout with CSS
 - This [video](https://www.youtube.com/watch?v=bAJlYgeovlg&t=1830s&ab_channel=WebDevSimplified) about how to build a custom select component with React and TypeScript
 - This [video](https://www.youtube.com/watch?v=fyuao3G-2qg&t=1499s&ab_channel=KevinPowell) on creating a color theme switcher
+- This [video](https://www.youtube.com/watch?v=7Y_2ywQMQEY&ab_channel=RobertsDevTalk) about how to create a TypeScript interface from API data
